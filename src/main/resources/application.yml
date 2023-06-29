@@ -15,6 +15,11 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order-service/**
+
         - id: catalog-service
           uri: lb://CATALOG-SERVICE
           predicates:
